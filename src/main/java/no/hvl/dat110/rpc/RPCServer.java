@@ -52,9 +52,9 @@ public class RPCServer {
 			byte[] methodParameter = RPCUtils.decapsulate(requestData);
 
 		   // - lookup the method to be invoked
-			RPCRemoteImpl method = services.get(rpcid);
+			rpcstop = services.get(rpcid);
 		   // - invoke the method and pass the param
-		   	byte[] marshalled = method.invoke(methodParameter);
+		   	byte[] marshalled = rpcstop.invoke(methodParameter);
 
 		   // - encapsulate return value 
 		   	byte[] rpsdata = RPCUtils.encapsulate(rpcid, marshalled);
