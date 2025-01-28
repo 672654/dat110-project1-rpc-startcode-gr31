@@ -53,13 +53,13 @@ public class MessageConnection {
 	public Message receive() {
 
 		Message message = null;
-		byte[] data = new byte[MessageUtils.SEGMENTSIZE];
+		byte[] segment = new byte[MessageUtils.SEGMENTSIZE];
 		
 		// TODO - START
 		// read a segment from the input stream and decapsulate data into a Message
 		try {
-			inStream.readFully(data);
-			message = MessageUtils.decapsulate(data);
+			inStream.readFully(segment);
+			message = MessageUtils.decapsulate(segment);
 
 
 		} catch (IOException e) {
